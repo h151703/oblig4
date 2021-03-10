@@ -19,7 +19,7 @@ public class Lenkeliste<T> implements Liste<T> {
 
 		// Constructor to create a new node
 		public Node(T data_) {
-			this.data = data_;
+			this.data = data;
 		}
 
 	}
