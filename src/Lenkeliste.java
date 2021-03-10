@@ -43,7 +43,7 @@ public class Lenkeliste<T> implements Liste<T> {
 
 		@Override
 		public T next() {
-			T data = current.data;
+			T data = (T) current.data; //fix?
 			current = current.neste;
 			teller++;
 			return data;

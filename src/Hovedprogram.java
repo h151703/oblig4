@@ -5,6 +5,8 @@ public class Hovedprogram {
 		Lege mrLege = new Lege("Linda Larsen");
 
 		Spesialist mrSpes = new Spesialist("Lise Lunde", "9876");
+		
+		Pasient pasient1 = new Pasient("Pim", "12059523465");
 
 		Narkotisk narkotisk = new Narkotisk("Zopiclone", 10, 129, 4.1, 3);
 
@@ -12,18 +14,25 @@ public class Hovedprogram {
 
 		Vanlig vanlig = new Vanlig("Cerazette", 2, 160, 6);
 
-		BlaaResept bla = new BlaaResept(123, 429, vanedannende, mrLege, 1, 4);
+		BlaaResept bla = new BlaaResept(123, 429, vanedannende, mrLege, pasient1, 4);
 
-		HvitResept hvit = new HvitResept(456, 129, narkotisk, mrSpes, 2, 1);
+		HvitResept hvit = new HvitResept(456, 129, narkotisk, mrSpes, pasient1, 1);
 
-		Militaerresept milrep = new Militaerresept(3, 429, vanlig, mrLege, 5, 6);
+		Militaerresept milrep = new Militaerresept(3, 429, vanlig, mrLege, pasient1, 6);
 
-		PResept prep = new PResept(8, 160, vanlig, mrLege, 6);
+		PResept prep = new PResept(8, 160, vanlig, mrLege, pasient1);
 
 
 		System.out.println("Lege 1 navn: " + mrLege.hentNavn());
 		System.out.println("Lege 2 navn: " + mrSpes.hentNavn() + " Kontrollid: " + mrSpes.toString());
 
+		
+		try {
+			mrLege.skrivBlaaResept(narkotisk, pasient1, 1);
+		}
+		catch(UlovligUtskrift u) {
+			System.out.print(u);
+		}
 
 		skrivUtLegemiddel(vanlig);
 		skrivUtLegemiddel(vanedannende);
@@ -32,6 +41,9 @@ public class Hovedprogram {
 		skrivUtResept(hvit);
 		skrivUtResept(milrep);
 		skrivUtResept(prep);
+		
+		
+		
 
 	}
 
